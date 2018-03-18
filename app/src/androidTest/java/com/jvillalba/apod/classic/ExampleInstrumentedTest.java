@@ -1,4 +1,4 @@
-package com.jvillalba.nasa.apod;
+package com.jvillalba.apod.classic;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

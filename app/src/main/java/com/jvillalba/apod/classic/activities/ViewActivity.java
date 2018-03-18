@@ -1,4 +1,4 @@
-package com.jvillalba.nasa.apod.activities;
+package com.jvillalba.apod.classic.activities;
 
 import android.Manifest;
 import android.content.Intent;
@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jvillalba.nasa.apod.R;
+import com.jvillalba.apod.classic.R;
 import com.squareup.picasso.Picasso;
 
 import model.NASA;

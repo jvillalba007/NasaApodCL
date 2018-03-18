@@ -1,4 +1,4 @@
-package com.jvillalba.nasa.apod;
+package com.jvillalba.apod.classic;
 
 import org.junit.Test;
 
