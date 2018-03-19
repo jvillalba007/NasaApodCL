@@ -19,10 +19,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jvillalba.apod.classic.R;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
-import model.NASA;
-import model.PicassoDownloader;
+import com.jvillalba.apod.classic.model.NASA;
+import com.jvillalba.apod.classic.model.PicassoDownloader;
+
+import static com.squareup.picasso.MemoryPolicy.NO_STORE;
 
 public class ViewActivity extends AppCompatActivity {
 
@@ -118,9 +121,13 @@ public class ViewActivity extends AppCompatActivity {
     }
 
     private void downloadPicasso(String imageName) {
-            Picasso.with(this)
-                    .load(nasaAPOD.getUrl())
-                    .into(new PicassoDownloader(imageName, this));
+        Picasso.with(this)
+                .load(nasaAPOD.getUrl())
+                .error(R.mipmap.ic_launcher_foreground)
+                .fit()
+                .memoryPolicy(NO_STORE)
+                .networkPolicy(NetworkPolicy.OFFLINE)
+                .into(imageAPOD);
 
     }
 

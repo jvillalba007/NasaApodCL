@@ -1,4 +1,4 @@
-package API;
+package com.jvillalba.apod.classic.API;
 
 import android.os.Build;
 
@@ -8,7 +8,7 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static API.Tls12SocketFactory.enableTls12OnPreLollipop;
+import static com.jvillalba.apod.classic.API.Tls12SocketFactory.enableTls12OnPreLollipop;
 
 public class API {
 

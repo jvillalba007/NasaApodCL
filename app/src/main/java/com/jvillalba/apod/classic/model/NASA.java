@@ -1,4 +1,4 @@
-package model;
+package com.jvillalba.apod.classic.model;
 
 import java.io.Serializable;
 

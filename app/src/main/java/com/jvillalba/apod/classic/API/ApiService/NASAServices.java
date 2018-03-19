@@ -1,15 +1,11 @@
-package API.ApiService;
+package com.jvillalba.apod.classic.API.ApiService;
 
 import java.util.List;
 
-import model.NASA;
+import com.jvillalba.apod.classic.model.NASA;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
-
-/**
- * Created by jvillalba on 16/03/18.
- */
 
 public interface NASAServices {
 

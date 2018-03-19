@@ -1,4 +1,4 @@
-package adapter;
+package com.jvillalba.apod.classic.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +15,9 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.NASA;
+import com.jvillalba.apod.classic.model.NASA;
+
+import static com.squareup.picasso.MemoryPolicy.NO_STORE;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
 {
@@ -28,7 +30,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
 
     public void addAll(List<NASA> resultList) {
 
-        List<NASA> filteredList = new ArrayList<NASA>();
+        List<NASA> filteredList = new ArrayList<>();
 
         for (NASA itemAPOD: resultList) {
             if (!(itemAPOD.getMedia_type().equalsIgnoreCase("video"))) {
@@ -82,7 +84,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
         void bind(final NASA nasa, final OnItemClickListener listener) {
             // Procesamos los datos a renderizar
             textViewName.setText(nasa.getTitle());
-            Picasso.with(context).load(nasa.getUrl()).error(R.mipmap.ic_launcher_foreground).fit().into(imageViewPoster);
+           Picasso.with(context)
+                   .load(nasa.getUrl())
+                   .error(R.mipmap.ic_launcher_foreground)
+                   .fit()
+                   .memoryPolicy(NO_STORE)
+                   .into(imageViewPoster);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -1,4 +1,4 @@
-package API;
+package com.jvillalba.apod.classic.API;
 
 import android.os.Build;
 import android.util.Log;
