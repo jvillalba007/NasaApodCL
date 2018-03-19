@@ -46,5 +46,6 @@ public class PicassoDownloader implements Target {
 
     @Override
     public void onBitmapFailed(Drawable arg0) {
+        Toast.makeText(context,"ERROR to Download Image",Toast.LENGTH_SHORT).show();
     }
 }
