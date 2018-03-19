@@ -180,7 +180,13 @@ public class ViewActivity extends AppCompatActivity {
 
     private void setDataNasaAPOD(NASA nasaAPOD) {
         imageAPOD = findViewById(R.id.imageAPOD);
-        Picasso.with(this).load(nasaAPOD.getUrl()).error(R.mipmap.ic_launcher_foreground).fit().into(imageAPOD);
+        Picasso.with(this)
+                .load(nasaAPOD.getUrl())
+                .error(R.mipmap.ic_launcher_foreground)
+                .fit()
+                .memoryPolicy(NO_STORE)
+                .networkPolicy(NetworkPolicy.OFFLINE)
+                .into(imageAPOD);
 
         TextView textTitle = findViewById(R.id.textTitle);
         textTitle.setText(getConcat(textTitle,nasaAPOD.getTitle()));
