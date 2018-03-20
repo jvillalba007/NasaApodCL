@@ -123,11 +123,9 @@ public class ViewActivity extends AppCompatActivity {
     private void downloadPicasso(String imageName) {
         Picasso.with(this)
                 .load(nasaAPOD.getUrl())
-                .error(R.mipmap.ic_launcher_foreground)
-                .fit()
                 .memoryPolicy(NO_STORE)
                 .networkPolicy(NetworkPolicy.OFFLINE)
-                .into(imageAPOD);
+                .into(new PicassoDownloader(imageName, this));
 
     }
 
@@ -185,7 +183,6 @@ public class ViewActivity extends AppCompatActivity {
                 .error(R.mipmap.ic_launcher_foreground)
                 .fit()
                 .memoryPolicy(NO_STORE)
-                .networkPolicy(NetworkPolicy.OFFLINE)
                 .into(imageAPOD);
 
         TextView textTitle = findViewById(R.id.textTitle);
