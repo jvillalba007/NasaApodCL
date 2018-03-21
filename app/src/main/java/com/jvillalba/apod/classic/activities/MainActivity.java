@@ -15,6 +15,8 @@ import com.jvillalba.apod.classic.adapter.MyAdapter;
 import com.jvillalba.apod.classic.controller.NasaController;
 import com.jvillalba.apod.classic.model.NASA;
 
+import java.io.File;
+
 public class MainActivity extends AppCompatActivity {
 
     private MyAdapter mAdapter;
@@ -52,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
+        picassoClearCache(getApplicationContext().getCacheDir());
+
         getNasaAPODS();
 
     }
@@ -83,8 +87,20 @@ public class MainActivity extends AppCompatActivity {
     private void getNasaAPODS() {
 
         NasaController nasaController = new NasaController();
-        nasaController.getNASAAPODS(mAdapter);
+        nasaController.getNASAAPODS(mAdapter,this.getApplicationContext());
 
+
+    }
+
+    public void picassoClearCache(File fileOrDirectory)
+    {
+        if (fileOrDirectory.isDirectory()) {
+            for (File child : fileOrDirectory.listFiles()) {
+                picassoClearCache(child);
+            }
+        }
+
+        fileOrDirectory.delete();
 
     }
 
