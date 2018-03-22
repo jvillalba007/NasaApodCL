@@ -16,7 +16,7 @@ import java.io.FileOutputStream;
 public class PicassoDownloader implements Target {
     private final String name;
     private final Context context;
-    private final String folder_apod = "NasaApod";
+    private final String folder_apod = "/NasaApod/";
     public PicassoDownloader(String name,Context context) {
         this.name = name.concat(".png");
         this.context = context;
